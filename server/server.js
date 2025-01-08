@@ -12,7 +12,13 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
+const corsOptions = {
+  origin: FRONTEND_URL, // Frontend URL
+  methods: "GET,POST,PUT,DELETE",
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(morgan("dev"));
 const port = process.env.PORT || 4000;
