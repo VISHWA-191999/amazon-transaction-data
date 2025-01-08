@@ -10,7 +10,7 @@ const TransactionTable = ({ selectedMonthNumber, searchQuery }) => {
     console.log(selectedMonthNumber)
     const fetchTransactions = async () => {
       const response = await axios.get(
-        `http://localhost:4000/api/product/get-transactions`,
+        `${import.meta.env.VITE_API_URL}/get-transactions`,
         {
           params: {
             month: selectedMonthNumber,
