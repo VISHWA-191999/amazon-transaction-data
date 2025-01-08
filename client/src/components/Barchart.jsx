@@ -7,7 +7,7 @@ const BarChartComponent = ({ selectedMonthNumber }) => {
 
   useEffect(() => {
     const fetchBarChartData = async () => {
-      const response = await axios.get(`http://localhost:4000/api/product/get-barChartData`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/get-barChartData`, {
         params: { month: selectedMonthNumber },
       });
       setData(response.data);

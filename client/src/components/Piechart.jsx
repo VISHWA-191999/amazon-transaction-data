@@ -9,7 +9,7 @@ const PieChartComponent = ({ selectedMonthNumber }) => {
 
   useEffect(() => {
     const fetchPieChartData = async () => {
-      const response = await axios.get(`http://localhost:4000/api/product/get-pieChartData`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/get-pieChartData`, {
         params: { month: selectedMonthNumber },
       });
       setData(response.data);

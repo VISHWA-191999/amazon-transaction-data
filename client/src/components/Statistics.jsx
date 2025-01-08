@@ -7,7 +7,7 @@ const Statistics = ({ selectedMonthNumber }) => {
   useEffect(() => {
     const fetchStatistics = async () => {
       const response = await axios.get(
-        `http://localhost:4000/api/product/get-statistics`,
+        `${import.meta.env.VITE_API_URL}/get-statistics`,
         { params: { month: selectedMonthNumber } }
       );
       setStatistics(response.data);
